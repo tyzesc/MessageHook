@@ -34,7 +34,8 @@ public class LotteryItemListener extends PacketAdapter {
             if (matcher.matches()) {
                 LotteryItemEvent e = new LotteryItemEvent(matcher.group("player"), matcher.group("package"),
                         matcher.group("item"), matcher.group("num"));
-                pluginManager.callEvent(e);
+                if (event.getPlayer().getDisplayName().equals(matcher.group("player")))
+                    pluginManager.callEvent(e);
             }
         } catch (Exception e) {
             // TODO: handle exception
