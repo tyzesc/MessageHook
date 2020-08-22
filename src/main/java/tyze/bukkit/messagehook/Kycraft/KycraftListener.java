@@ -21,9 +21,9 @@ public class KycraftListener implements Listener {
     public void onBroadcastMessageEvent(BroadcastMessageEvent event) {
         String s = event.getMessage();
         Pattern pattern = Pattern.compile(regex);
-        Matcher mathcer = pattern.matcher(s);
-        if (mathcer.matches()) {
-            KycraftEvent kycEvent = new KycraftEvent(mathcer.group("player"), mathcer.group("item"));
+        Matcher matcher = pattern.matcher(s);
+        if (matcher.matches()) {
+            KycraftEvent kycEvent = new KycraftEvent(matcher.group("player"), matcher.group("item"));
             pluginManager.callEvent(kycEvent);
         }
     }
